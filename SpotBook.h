@@ -4,18 +4,24 @@
 #include <string>
 #pragma once
 
-class SpotBook
-{
+#include <bits/stdc++.h>
+
+#include "HandicappedSpot.h"
+#include "electricSpot.h"
+#include "LargSpot.h"
+#include "SmallSpot.h"
+
+#include "CustomerData.h"
+
+class CustomerData; // Forward declaration
+
+class SpotBook : public HandicappedSpot, public electricSpot, public SmallSpot ,public LargSpot{
 public:
     SpotBook();
-    virtual ~SpotBook();
-    virtual bool IsSpotFree (void);
-    virtual void BookSpot(void);
-    virtual void FreeSpot(void);
-private:
-    
-protected:
+    ~SpotBook();
+    void BookSpot(CustomerData CUSTOMER);
+    void FreeSpot(CustomerData CUSTOMER);
     static int counter_spot_booked;
 };
 
-#endif
+#endif // SPOTBOOK_H

@@ -16,11 +16,3 @@ bool electricSpot::IsSpotFree(void)
     }    
     else return true;
 }
-void electricSpot::BookSpot(void)
-{
-    electricSpotCount++;   
-}
-void electricSpot::FreeSpot(void)
-{
-    electricSpotCount--;   
-}

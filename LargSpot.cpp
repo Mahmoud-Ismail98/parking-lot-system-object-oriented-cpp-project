@@ -16,13 +16,3 @@ bool LargSpot::IsSpotFree(void)
     }    
     else return true;
 }
-void LargSpot::BookSpot(void)
-{
-    LargSpotCount++;
-    counter_spot_booked++;   
-}
-void LargSpot::FreeSpot(void)
-{
-    LargSpotCount--;  
-    counter_spot_booked--;   
-}

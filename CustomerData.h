@@ -7,17 +7,17 @@
 #include "SpotBook.h"
 
 
-class CustomerData:public SpotBook
+class CustomerData//:public SpotBook
 {
 public:
     CustomerData();
     ~CustomerData();
     int GetSpotType();
-    void ShowCustomerData();
+    void ShowCustomerData(const CustomerData & customerobject);
     void EnterCustomerData();   
 
 private:
-    static int counter_spot_booked;
+   // static int counter_spot_booked;
     int spot_type;  
     std::string name;
     long long id;

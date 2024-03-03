@@ -21,14 +21,12 @@ ParkingOperation::~ParkingOperation()
 
 void ParkingOperation::show_price_list(void)
 {    
-   /* std::cout<<"fees of Handicapped_spot per hour is "<<Handicapped_spot_fees <<"egp"<<std::endl;
+    std::cout<<"fees of Handicapped_spot per hour is "<<Handicapped_spot_fees <<" egp"<<std::endl;
 
-    std::cout<<"fees of electric_spot per hour is "<<electric_spot_fees <<"egp"<<std::endl;
+    std::cout<<"fees of electric_spot per hour is "<<electric_spot_fees <<" egp"<<std::endl;
 
-    std::cout<<"fees of larg_spot per hour is "<<larg_spot_fees <<"egp"<<std::endl;
+    std::cout<<"fees of larg_spot per hour is "<<larg_spot_fees <<" egp"<<std::endl;
 
-    std::cout<<"fees of small_spot per hour is "<<small_spot_fees <<"egp"<<std::endl;*/
-
-//    std::cout<<"fees of per hour is "<< <<"egp"<<std::endl;
+    std::cout<<"fees of small_spot per hour is "<<small_spot_fees <<" egp"<<std::endl;
 
 }

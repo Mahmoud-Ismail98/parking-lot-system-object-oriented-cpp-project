@@ -2,20 +2,16 @@
 #define HANDICAPPEDSPOT_H
 #include <iostream>
 #include <string>
-#include "SpotBook.h"
 #pragma once
 
-class HandicappedSpot:public SpotBook
+class HandicappedSpot
 {
 public:
     HandicappedSpot();
-    ~HandicappedSpot() override;
-    bool IsSpotFree (void) override;
-    void BookSpot(void)   override;
-    void FreeSpot(void)   override;
-
-
-private:
+    ~HandicappedSpot();
+    static bool IsSpotFree (void) ;
+ 
+protected:
     static int HandicappedSpotCount;
 
 };

@@ -19,13 +19,3 @@ bool HandicappedSpot::IsSpotFree(void)
     }    
     else return true;
 }
-void HandicappedSpot::BookSpot(void)
-{
-    HandicappedSpotCount++;   
-    counter_spot_booked++;  
-}
-void HandicappedSpot::FreeSpot(void)
-{
-    HandicappedSpotCount--;  
-    counter_spot_booked--;   
-}

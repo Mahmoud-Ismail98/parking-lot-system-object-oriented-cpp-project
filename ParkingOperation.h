@@ -13,8 +13,6 @@ public:
     ~ParkingOperation();
     void show_price_list(void);
 
-
-
 //protected:
     //static because the following is shared between all classes
     static int number_free_spots;

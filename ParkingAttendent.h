@@ -4,9 +4,11 @@
 #include <string>
 #include <bits/stdc++.h>
 #include "account.h"
+#include "ParkingOperation.h"
+
 #pragma once
 
-class ParkingAttendent:public account
+class ParkingAttendent:public account ,public ParkingOperation
 {
 public:
     ParkingAttendent();

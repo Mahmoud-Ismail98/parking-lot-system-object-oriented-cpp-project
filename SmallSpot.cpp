@@ -2,9 +2,7 @@
 int SmallSpot::SmallSpotCount=0;
 SmallSpot::SmallSpot()
 {
-
 }
-
 SmallSpot::~SmallSpot()
 {
 
@@ -16,12 +14,4 @@ bool SmallSpot::IsSpotFree(void)
         return false;
     }    
     else return true;
-}
-void SmallSpot::BookSpot(void)
-{
-    SmallSpotCount++;   
-}
-void SmallSpot::FreeSpot(void)
-{
-    SmallSpotCount--;   
 }

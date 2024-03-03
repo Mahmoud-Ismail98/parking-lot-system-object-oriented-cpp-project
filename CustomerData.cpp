@@ -1,7 +1,7 @@
 #include "CustomerData.h"
 
 
-int CustomerData::counter_spot_booked=0;
+//int CustomerData::counter_spot_booked=0;
 
 CustomerData::CustomerData()
 {
@@ -18,12 +18,20 @@ int CustomerData::GetSpotType()
     return this->spot_type;
 }
 
-void CustomerData::ShowCustomerData()
+void CustomerData::ShowCustomerData(const CustomerData & customerobject)
 {
-        std::cout << "\nName :" << name;
-        std::cout << "\nMobile no. :" << mob;
-        std::cout << "\nVehicle license plate :" << liencesPlate;
-        std::cout << "\nVehicle type :" << spot_type;
+        std::cout << "\nName :" << customerobject.name;
+        std::cout << "\nMobile no. :" << customerobject.mob;
+        std::cout << "\nVehicle license plate :" << customerobject.liencesPlate;
+        std::cout << "\nVehicle type :" ;
+        if (customerobject.spot_type==1)
+        std::cout <<"Handicapped_spot ";        
+        else if (customerobject.spot_type==2)
+        std::cout <<"electric_spot ";        
+        else if (customerobject.spot_type==3)
+        std::cout <<"larg_spot ";        
+        else if (customerobject.spot_type==4)
+        std::cout <<"small_spot ";        
         std::cout << "\n";
 }
 
@@ -37,11 +45,11 @@ void CustomerData::EnterCustomerData()
         std::cin >> liencesPlate;
         std::cout << "Enter type of spot ->\n1:Handicapped_spot \n2:electric_spot\n3:larg_spot \n4.small_spot \n";        
         std::cin >> spot_type;
-  /*    if (SpotBook::IsSpotFree(this))
+/*        if (SpotBook::IsSpotFree())
         {
-          SpotBook::BookSpot(this); 
+          SpotBook::BookSpot(); 
           counter_spot_booked++; 
         }
         else 
-        std::cout << "there is no free spot ";  */      
+        std::cout << "there is no free spot ";*/        
 } 
