@@ -15,9 +15,13 @@ public:
     int GetSpotType();
     void ShowCustomerData(const CustomerData & customerobject);
     void EnterCustomerData();   
+    time_t entered_time=0;
+
 
 private:
    // static int counter_spot_booked;
+   
+    static int customer_id;
     int spot_type;  
     std::string name;
     long long id;

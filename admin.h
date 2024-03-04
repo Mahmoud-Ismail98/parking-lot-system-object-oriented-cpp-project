@@ -11,7 +11,6 @@ class admin:public account,public ParkingOperation
 public:
     admin();
     ~admin();
-    void show_park_status(void);
     void update_parking_fees(void);
 private:
 

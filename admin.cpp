@@ -10,23 +10,6 @@ admin::~admin()
 
 }
 
-
-void admin::show_park_status(void)
-{
-    int input_state;
-    std::cout<<"1:show price list \n2:show free spot" <<std::endl;
-    std::cin>> input_state;
-    if (input_state == 1 )
-    {
-        show_price_list();
-    }
-    else
-    {
-     std::cout<<"the number of free spots is "<< number_free_spots<<std::endl;
-    }
-    
-    
-}
 void admin::update_parking_fees(void)
 {
     int select_input=0;

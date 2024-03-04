@@ -2,6 +2,7 @@
 
 
 //int CustomerData::counter_spot_booked=0;
+int CustomerData::customer_id=0;
 
 CustomerData::CustomerData()
 {
@@ -20,6 +21,7 @@ int CustomerData::GetSpotType()
 
 void CustomerData::ShowCustomerData(const CustomerData & customerobject)
 {
+        std::cout << "\ncustomer_id :" << customerobject.customer_id;
         std::cout << "\nName :" << customerobject.name;
         std::cout << "\nMobile no. :" << customerobject.mob;
         std::cout << "\nVehicle license plate :" << customerobject.liencesPlate;
@@ -45,11 +47,12 @@ void CustomerData::EnterCustomerData()
         std::cin >> liencesPlate;
         std::cout << "Enter type of spot ->\n1:Handicapped_spot \n2:electric_spot\n3:larg_spot \n4.small_spot \n";        
         std::cin >> spot_type;
-/*        if (SpotBook::IsSpotFree())
+ /*       if (SpotBook::IsSpotFree(this))
         {
           SpotBook::BookSpot(); 
           counter_spot_booked++; 
         }
         else 
         std::cout << "there is no free spot ";*/        
+        customer_id++;
 } 

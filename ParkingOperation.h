@@ -1,6 +1,5 @@
 #ifndef PARKINGOPERATION_H
 #define PARKINGOPERATION_H
-
 #pragma once
 
 class ParkingOperation

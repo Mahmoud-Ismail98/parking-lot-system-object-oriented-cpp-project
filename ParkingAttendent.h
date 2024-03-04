@@ -5,7 +5,9 @@
 #include <bits/stdc++.h>
 #include "account.h"
 #include "ParkingOperation.h"
-
+#include <ctime>
+#include "CustomerData.h"
+using namespace std;
 #pragma once
 
 class ParkingAttendent:public account ,public ParkingOperation
@@ -13,6 +15,7 @@ class ParkingAttendent:public account ,public ParkingOperation
 public:
     ParkingAttendent();
     ~ParkingAttendent();
+    void evaluate_ticket_time(CustomerData & customer_object);
    // void show_price_list(void);
 
 private:
