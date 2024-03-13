@@ -36,20 +36,11 @@ void Exit::payment_operation( CustomerData & customer_object)
         default:
             break;
         }
-        int Total_cost=spot_fees*hours;
-        cout<<"Total cost : "<<Total_cost<<endl;
+        this->cost=spot_fees*hours;
+        cout<<"Total cost : "<<this->cost<<endl;
         cout<<"**********************************************"<<endl;
+        this->payment_option();
         cout<<"Thank you for coming"<<endl;      
-}
-
-void Exit::delete_custoemr(CustomerData & customer_object)
-{
-    
-}
-
-void Exit::print_fees()
-{
-    
 }
 void Exit::payment_option()
     {
@@ -60,7 +51,7 @@ void Exit::payment_option()
         std::cin >> type_of_payment;
         if (type_of_payment == 1)
         {
-            std::cout << "Payment through cash is successful" << std::endl;
+            std::cout << "cash Payment is successful" << std::endl;
         }
         else
         {
@@ -69,6 +60,6 @@ void Exit::payment_option()
             std::cout << std::endl;
             std::cout << "Enter PIN : ";
             std::cin >> pin;
-            std::cout << "Payment through card is successful" << std::endl;
+            std::cout << "card Payment is successful" << std::endl;
         }
     }

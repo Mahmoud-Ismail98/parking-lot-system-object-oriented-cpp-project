@@ -17,9 +17,7 @@ public:
     Exit();
     ~Exit();
     void payment_operation( CustomerData & customer_object);
-    void delete_custoemr( CustomerData & customer_object);
     void payment_option();
-    void print_fees();
 private:
     int cost;
 };

@@ -16,8 +16,6 @@ public:
     ParkingAttendent();
     ~ParkingAttendent();
     void evaluate_ticket_time(CustomerData & customer_object);
-   // void show_price_list(void);
-
 private:
 
 };
