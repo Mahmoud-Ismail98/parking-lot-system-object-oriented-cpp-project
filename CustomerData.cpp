@@ -1,8 +1,7 @@
 #include "CustomerData.h"
 
 
-//int CustomerData::counter_spot_booked=0;
-int CustomerData::customer_id=0;
+int CustomerData::counter_customer=0;
 
 CustomerData::CustomerData()
 {
@@ -47,5 +46,6 @@ void CustomerData::EnterCustomerData()
         std::cin >> liencesPlate;
         std::cout << "Enter type of spot ->\n1:Handicapped_spot \n2:electric_spot\n3:larg_spot \n4.small_spot \n";        
         std::cin >> spot_type;   
-        customer_id++;
+        counter_customer++;
+        customer_id=counter_customer;
 } 

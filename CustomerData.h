@@ -16,12 +16,10 @@ public:
     void ShowCustomerData(const CustomerData & customerobject);
     void EnterCustomerData();   
     time_t entered_time=0;
-    static int customer_id;
-
+    static int counter_customer;
+    int customer_id; 
 
 private:
-   // static int counter_spot_booked;
-   
     int spot_type;  
     std::string name;
     long long id;

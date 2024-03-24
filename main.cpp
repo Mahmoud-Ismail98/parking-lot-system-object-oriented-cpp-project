@@ -15,8 +15,7 @@ using namespace std;
 
 int main (void)
 { 
-    // Create a vector of pointer to objects    
-    std::vector<CustomerData*> customers;
+    vector<unique_ptr<CustomerData>> customers;
     int customer_id=0;
     int log;  
     char ans;  
@@ -26,14 +25,13 @@ int main (void)
     ParkingAttendent PARK_ATTENDENT;
     SpotBook BOOKSPOT;
     CustomerData CUSTOMER;
-    CustomerData newCustomer;
-    CustomerData *ptrCustomer;
     Exit custmer_exit;
     while(1){
     cout <<"wellocome to parking center"<<endl;
     cout << "\n*********************************** CAR PARKING MANAGEMENT ***********************************\n";
     cout << "1.Admin mode";
     cout << "\n2.Parking attendant mode";
+    cout << "\n3.exist";
     cout << "\n************************************ Choose your identity ************************************\n";
     cin >> log;
     switch (log)
@@ -57,7 +55,7 @@ int main (void)
                         switch (choice)
                         {
                         case 1:
-                            for(auto it: customers)
+                            for(const auto &it: customers)
                                 CUSTOMER.ShowCustomerData(*it);
                                 cout<<"\n\n"<<endl;
 
@@ -72,7 +70,6 @@ int main (void)
                             ADMIN.update_parking_fees();
                             break;
                         case 5:
-                            exit(0);
                             break;
                         default:
                             cout << "Wrong value entered\n\n\n";
@@ -106,14 +103,18 @@ int main (void)
                     cin >> c;
                     switch (c)
                     {
+
                         case 1:
-                            ptrCustomer = new CustomerData; // Create a new CustomerData object
+                        {
+                            unique_ptr<CustomerData> ptrCustomer(new CustomerData);
                             ptrCustomer->EnterCustomerData();
                             PARK_ATTENDENT.evaluate_ticket_time(*ptrCustomer);
-                            customers.push_back(ptrCustomer);
-                            BOOKSPOT.BookSpot(*ptrCustomer); 
-                            cout<<"you id is "<<ptrCustomer->customer_id<<endl;
-                            break;
+                            customers.push_back(move(ptrCustomer));
+                            BOOKSPOT.BookSpot(*customers.back());
+                            cout << "Your id is " << customers.back()->customer_id << endl;
+                        }
+                        break;                                                    
+                                  
                         case 2:
                               cout<<"number of empty spots "<< (ParkingOperation::number_free_spots - SpotBook::counter_spot_booked);
                               break;
@@ -131,20 +132,26 @@ int main (void)
                             }
                             break;
                         case 5:
+                        {
                             int customer_id;
-                            cout <<"enter customer ID ";
-                            cin >> customer_id;           
-                           if (customer_id > 0 && customer_id <= customers.size()+1) {                 
-                            custmer_exit.payment_operation(*customers[customer_id-1]);
-                            delete customers[customer_id - 1];
-                            customers.erase(customers.begin() + customer_id - 1);                        
-                            } 
-                            else {
-                            cout << "Invalid customer ID\n";
+                            cout << "Enter customer ID: ";
+                            cin >> customer_id;
+
+                            auto it = std::find_if(customers.begin(), customers.end(),
+                                [customer_id](const std::unique_ptr<CustomerData>& customer) {
+                                    return customer->customer_id == customer_id;
+                                });
+
+                            if (it != customers.end()) {
+                                custmer_exit.payment_operation(**it);
+                                it = customers.erase(it);
+                                cout << "Customer with ID " << customer_id << " removed successfully.\n";
+                            } else {
+                                cout << "Customer with ID " << customer_id << " not found.\n";
                             }
-                            break;
-                        case 6:
-                            exit(0);
+                        }
+                        break;                            
+                        case 6:                            
                             break;
                         default:
                             cout << "Wrong value entered\n";
@@ -155,7 +162,10 @@ int main (void)
                 }
             else
                 cout << "\n     Incorrect password\n\n\n";
-            break;                    
+            break;    
+        case 3:
+                exit(0);
+            break;    
     }  
     }  
     return 0;
